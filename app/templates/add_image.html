@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meg and Boots</title>
+    <link rel="stylesheet", type="text/css", href="static/css/styles.css">
+</head>
+<body>
+    <div class="top">
+        <h1 class="title"><a href="{{ url_for('index') }}">Meg and Boots</a></h1>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <h2 class="flash">{{ message }}</h2>
+            {% endfor %}
+        {% endwith %}
+        <h1 class="upload-header">Upload your picture</h1>
+        <form class="image_form" enctype="multipart/form-data" method="post" action="">
+            <input class="img-upload" type="file" name="file">
+            <input class="form-submit-button" type="submit" value="Upload">
+        </form>
+        <h1 class="reset-header">Reset Pictures</h1>
+        <form class="reset_form" method="post" action="{{ url_for('reset') }}">
+            <input class="reset-submit-button" type="submit" value="Reset">
+        </form>
+</body>
+</html>

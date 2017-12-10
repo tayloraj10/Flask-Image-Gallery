@@ -1,0 +1,179 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background: Gainsboro;
+}
+
+a {
+    text-decoration: none;
+    color: #5642f4;
+}
+
+.del-anchor {
+    display: block;
+    text-align: center;
+}
+
+.title {
+    background: pink;
+    text-align: center;
+    font-family: Arial;
+    padding: 25px;
+    margin: 0px;
+    font-size: 50px;
+    color: #5642f4;
+}
+
+.add-image-form {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.delete-image-form{
+    margin-top: 35px;
+    text-align: center;
+}
+
+.add-button {
+    background: #4bf442;
+    color: #5642f4;
+    border: solid black 1px;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    opacity: .8;
+}
+
+.delete-button {
+    background: #f70e0e;
+    color: #5642f4;
+    border: solid black 1px;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    opacity: .8;
+}
+
+.form {
+    display: inline-block;
+    vertical-align:top;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.forms {
+    text-align: center;
+}
+
+.image-gallery {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    height: 30%;
+    width: 35%;
+    margin: 20px;
+    border: #808080 2px solid;
+}
+
+.image:hover {
+    opacity: .9;
+    border: #404040 2px solid;
+}
+
+.del-image {
+    height: 30%;
+    width: 35%;
+    margin: 20px;
+    border: #f70e0e 4px solid;
+}
+
+.del-image:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.submit-line {
+    margin-top: 25px;
+    width: 85%;
+    border: .5px solid black;
+    noshade: noshade;
+    background: black
+}
+
+.image_form {
+    text-align: center;
+    margin: auto;
+}
+
+.reset_form {
+    text-align: center;
+    margin: auto;
+}
+
+.img-upload {
+    color: #5642f4;
+}
+
+.upload-header {
+    text-align: center;
+    color: #5642f4;
+    font-family: Arial;
+    margin-top: 50px;
+}
+
+.reset-header {
+    text-align: center;
+    color: #5642f4;
+    font-family: Arial;
+    margin-top: 75px;
+}
+
+.flash {
+    font-size: 36px;
+    color: #e51616;
+    text-align: center;
+}
+
+.login-flash {
+    font-size: 22px;
+    color: #e51616;
+    text-align: center;
+}
+
+.del-flash {
+    font-size: 36px;
+    color: #e51616;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.rg {
+    margin: 30px;
+}
+
+.rg-div {
+    text-align: center;
+}
+
+.login-section {
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 10px;
+}

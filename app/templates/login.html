@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meg and Boots</title>
+    <link rel="stylesheet", type="text/css", href="static/css/styles.css">
+</head>
+<body>
+    <div class="top">
+        <h1 class="title"><a href="{{ url_for('index') }}">Meg and Boots</a></h1>
+    </div>
+    <div class="rg-div">
+        <img class="rg" src="../static/rg/hey-girl-merry-christmas.jpg">
+    </div>
+    <div class="login-section">
+        <form method="post" action="" class="login-form">
+            {{ form.hidden_tag() }}
+            {% for field in form %}
+                <div class="field">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div class="notification error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                     {{ field(placeholder=field.label.text) }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <h2 class="login-flash">{{ message }}</h2>
+            {% endfor %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>

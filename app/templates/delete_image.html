@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meg and Boots</title>
+    <link rel="stylesheet", type="text/css", href="static/css/styles.css">
+</head>
+<body>
+    <div class="top">
+        <h1 class="title"><a href="{{ url_for('index') }}">Meg and Boots</a></h1>
+        <div class="forms">
+        <form class="add-image-form form" action="{{ url_for('add_image') }}" method="post">
+            <input class="add-button" type="submit" value="Add an Image" name="submit">
+        </form>
+        <form class="delete-image-form form" action="{{ url_for('delete_image') }}" method="get">
+            <input class="delete-button" type="submit" value="Delete an Image" name="submit">
+        </form>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <h2 class="del-flash">{{ message }}</h2>
+            {% endfor %}
+        {% endwith %}
+        <hr class="submit-line">
+    </div>
+    <div class="image-gallery">
+        {% for image in images %}
+            <a class="del-anchor" href="{{ url_for('delete', image_url=image) }}"><img class="del-image" src="{{ 'static/img/' + image }}"</a>
+        {% endfor %}
+    </div>
+</body>
+</html>
