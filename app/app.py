@@ -1,3 +1,4 @@
+import logging
 import os
 import shutil
 from flask import (Flask, render_template, request, url_for,
@@ -7,6 +8,7 @@ from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
 from werkzeug.utils import secure_filename
 
+
 upload_path = "static/img"
 backup_path = "static/img_backup"
 allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
@@ -15,6 +17,8 @@ allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
 app = Flask(__name__)
 app.secret_key = "ja;kdsjfadnf,manvklsueejrlweuroqueoup34iou2cnz.,"
 app.config['upload_path'] = upload_path
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 
 class LoginForm(Form):
