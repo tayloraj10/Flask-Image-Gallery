@@ -76,7 +76,7 @@ def add_image():
 @app.route('/delete_image', methods=('GET', 'POST'))
 def delete_image():
     images = []
-    for filename in os.listdir('static/img'):
+    for filename in os.listdir(upload_path):
         print(filename)
         images.append(filename)
     flash("Click an image to delete it")
@@ -86,7 +86,7 @@ def delete_image():
 @app.route('/delete_image/<image_url>', methods=('GET', 'POST'))
 def delete(image_url):
     images = []
-    for filename in os.listdir('static/img'):
+    for filename in os.listdir(upload_path):
         print(filename)
         images.append(filename)
     if image_url in images:
