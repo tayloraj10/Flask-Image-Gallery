@@ -8,8 +8,8 @@ from wtforms.validators import DataRequired
 from werkzeug.utils import secure_filename
 
 
-upload_path = "static/img"
-backup_path = "static/img_backup"
+upload_path = "app/static/img"
+backup_path = "app/static/img_backup"
 allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
 
 
