@@ -153,6 +153,7 @@ a {
     font-size: 22px;
     color: #e51616;
     text-align: center;
+    margin-top: 0px;
 }
 
 .del-flash {
@@ -164,6 +165,8 @@ a {
 
 .rg {
     margin: 30px;
+    width: auto;
+    height: 425px;
 }
 
 .rg-div {

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Meg and Boots</title>
+    <title>Flask Cat Picture Gallery</title>
     <link rel="stylesheet", type="text/css", href="static/css/styles.css">
 </head>
 <body>
     <div class="top">
-        <h1 class="title"><a href="{{ url_for('index') }}">Meg and Boots</a></h1>
+        <h1 class="title"><a href="{{ url_for('index') }}">Kipper's Gallery</a></h1>
         <div class="forms">
         <form class="add-image-form form" action="{{ url_for('add_image') }}" method="post">
             <input class="add-button" type="submit" value="Add an Image" name="submit">

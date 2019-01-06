@@ -37,7 +37,7 @@ def allowed_filename(filename):
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.username.data == 'mbrumbley' and form.password.data == 'boots':
+        if form.username.data == 'user' and form.password.data == 'password':
             return redirect(url_for('index'))
         else:
             flash("Wrong username or password")

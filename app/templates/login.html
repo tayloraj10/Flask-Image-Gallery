@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Meg and Boots</title>
+    <title>Flask Cat Picture Gallery</title>
     <link rel="stylesheet", type="text/css", href="static/css/styles.css">
 </head>
 <body>
     <div class="top">
-        <h1 class="title"><a href="{{ url_for('index') }}">Meg and Boots</a></h1>
+        <h1 class="title"><a href="{{ url_for('index') }}">Flask Cat Picture Gallery</a></h1>
     </div>
     <div class="rg-div">
-        <img class="rg" src="../static/rg/hey-girl-merry-christmas.jpg">
+        <img class="rg" src="../static/img_login/IMG_1635.JPG">
     </div>
     <div class="login-section">
         <form method="post" action="" class="login-form">
             {{ form.hidden_tag() }}
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <h2 class="login-flash">{{ message }}</h2>
+                {% endfor %}
+            {% endwith %}
             {% for field in form %}
                 <div class="field">
                     {% if field.errors %}
@@ -27,12 +32,6 @@
             {% endfor %}
             <button type="submit" class="login-button">Login</button>
         </form>
-        {% with messages = get_flashed_messages() %}
-            {% for message in messages %}
-                <h2 class="login-flash">{{ message }}</h2>
-            {% endfor %}
-        {% endwith %}
     </div>
-
 </body>
 </html>
