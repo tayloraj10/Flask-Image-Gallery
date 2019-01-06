@@ -1,5 +1,6 @@
 import os
 import shutil
+from PIL import Image, ExifTags
 from flask import (Flask, render_template, request, url_for,
                    redirect, flash)
 from flask_wtf import Form
@@ -33,6 +34,28 @@ def allowed_filename(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
 
 
+def fix_image_rotation(filepath):
+    try:
+        image=Image.open(filepath)
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation]=='Orientation':
+                break
+        exif=dict(image._getexif().items())
+
+        if exif[orientation] == 3:
+            image=image.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            image=image.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            image=image.rotate(90, expand=True)
+        image.save(filepath)
+        image.close()
+
+    except (AttributeError, KeyError, IndexError):
+        # cases: image don't have getexif
+        pass
+
+
 @app.route('/', methods=('GET', 'POST'))
 def login():
     form = LoginForm()
@@ -48,6 +71,7 @@ def index():
     images = []
     for filename in os.listdir(upload_path):
         print(filename)
+        fix_image_rotation(upload_path + '/' + filename)
         images.append(filename)
     return render_template('index.html', images=images)
 
@@ -69,6 +93,7 @@ def add_image():
         if file and allowed_filename(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['upload_path'], filename))
+            fix_image_rotation(os.path.join(app.config['upload_path'], filename))
             return redirect(url_for('index'))
     return render_template('add_image.html')
 
